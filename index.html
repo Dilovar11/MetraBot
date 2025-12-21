@@ -7,18 +7,14 @@
 </head>
 <body>
 
-<h3 id="hello">Привет</h3>
+<h3 id="hello">Привет!</h3>
 <button onclick="sendData()">Авторизоваться</button>
 
 <script>
     const tg = window.Telegram.WebApp;
-    tg.expand();
 
-    const user = tg.initDataUnsafe.user;
-
-    if (user) {
-        document.getElementById("hello").innerText =
-            "Привет, " + user.first_name;
+    if (!tg.initData) {
+        alert("❌ Откройте Mini App через кнопку Telegram");
     }
 
     function sendData() {
@@ -27,6 +23,7 @@
         }));
     }
 </script>
+
 
 </body>
 </html>
