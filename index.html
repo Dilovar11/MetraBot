@@ -13,16 +13,17 @@
 <script>
     const tg = window.Telegram.WebApp;
 
-    if (!tg.initData) {
-        alert("❌ Откройте Mini App через кнопку Telegram");
-    }
+    tg.ready(); // ⬅️ ВАЖНО
 
-    function sendData() {
-        tg.sendData(JSON.stringify({
-            initData: tg.initData
-        }));
-    }
+    setTimeout(() => {
+        if (!tg.initData) {
+            alert("❌ Откройте Mini App через кнопку Telegram");
+        } else {
+            console.log("✅ initData получен");
+        }
+    }, 100); // 50–150 мс достаточно
 </script>
+
 
 
 </body>
