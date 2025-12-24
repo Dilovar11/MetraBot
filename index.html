@@ -18,7 +18,7 @@
         console.log('user: ' + tg.initDataUnsafe.user)
 
         tg.sendData(JSON.stringify({
-            initData: tg.initData
+            user: tg.initDataUnsafe.user
         }));
 
         tg.close(); 
