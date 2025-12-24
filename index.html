@@ -9,16 +9,16 @@
 
 <h3 id="hello">Привет ss</h3>
 <button onclick="sendData()">Авторизоваться</button>
-
+<input type="text" id="text">
 <script>
     const tg = window.Telegram.WebApp;
     tg.ready();
 
     function sendData() {
-        console.log('user: ' + tg.initDataUnsafe.user)
-
+        text = document.getElementById('text')
+        
         tg.sendData(JSON.stringify({
-            user: tg.initDataUnsafe.user
+            user: text
         }));
 
         tg.close(); 
