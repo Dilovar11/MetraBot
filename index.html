@@ -16,10 +16,6 @@
 
     function sendData() {
         console.log('user: ' + tg.initDataUnsafe.user)
-        if (!tg.initDataUnsafe?.user) {
-            alert("❌ Mini App открыт НЕ через Telegram");
-            return;
-        }
 
         tg.sendData(JSON.stringify({
             initData: tg.initData
