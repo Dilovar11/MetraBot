@@ -12,17 +12,22 @@
 
 <script>
     const tg = window.Telegram.WebApp;
+    tg.ready();
 
-    tg.ready(); // ⬅️ ВАЖНО
-
-    setTimeout(() => {
-        if (!tg.initData) {
-            alert("❌ Откройте Mini App через кнопку Telegram");
-        } else {
-            console.log("✅ initData получен");
+    function sendData() {
+        if (!tg.initDataUnsafe?.user) {
+            alert("❌ Mini App открыт НЕ через Telegram");
+            return;
         }
-    }, 100); // 50–150 мс достаточно
+
+        tg.sendData(JSON.stringify({
+            initData: tg.initData
+        }));
+
+        tg.close(); // закрыть Mini App
+    }
 </script>
+
 
 
 
