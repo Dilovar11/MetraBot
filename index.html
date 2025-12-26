@@ -21,9 +21,7 @@
 
 <h2>Регистрация</h2>
 
-<input id="name" placeholder="Имя">
-<input id="phone" placeholder="Телефон">
-<input id="email" placeholder="Email">
+<input id="name" placeholder="Описание изображение">
 
 <button onclick="sendData()">Отправить</button>
 
@@ -35,8 +33,6 @@
     function sendData() {
         const data = {
             name: document.getElementById("name").value,
-            phone: document.getElementById("phone").value,
-            email: document.getElementById("email").value,
         };
 
         tg.sendData(JSON.stringify(data));
